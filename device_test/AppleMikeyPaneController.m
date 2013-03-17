@@ -85,12 +85,12 @@
 //=========================================================== 
 //  mikeyIndex
 //=========================================================== 
-- (unsigned) mikeyIndex
+- (NSUInteger) mikeyIndex
 {
     return mMikeyIndex;
 }
 
-- (void) setMikeyIndex: (unsigned) theMikeyIndex
+- (void) setMikeyIndex: (NSUInteger) theMikeyIndex
 {
     if (mCurrentMikey != nil)
     {

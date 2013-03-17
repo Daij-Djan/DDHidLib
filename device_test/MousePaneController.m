@@ -89,7 +89,7 @@ static int applyDelta(int current, int delta)
 //=========================================================== 
 // - mouseIndex
 //=========================================================== 
-- (unsigned) mouseIndex
+- (NSUInteger) mouseIndex
 {
     return mMouseIndex;
 }
@@ -97,7 +97,7 @@ static int applyDelta(int current, int delta)
 //=========================================================== 
 // - setMouseIndex:
 //=========================================================== 
-- (void) setMouseIndex: (unsigned) theMouseIndex
+- (void) setMouseIndex: (NSUInteger) theMouseIndex
 {
     if (mCurrentMouse != nil)
     {

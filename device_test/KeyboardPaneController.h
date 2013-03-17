@@ -33,7 +33,7 @@
     IBOutlet NSArrayController * mKeyboardEventsController;
 
     NSArray * mKeyboards;
-    unsigned mKeyboardIndex;
+    NSUInteger mKeyboardIndex;
     NSMutableArray * mEvents;
     
     // Don't retain these
@@ -43,8 +43,8 @@
 - (NSArray *) keyboards;
 - (void) setKeyboards: (NSArray *) theKeyboards;
 
-- (unsigned) keyboardIndex;
-- (void) setKeyboardIndex: (unsigned) theKeyboardIndex;
+- (NSUInteger) keyboardIndex;
+- (void) setKeyboardIndex: (NSUInteger) theKeyboardIndex;
 
 - (NSMutableArray *) events;
 - (void) setEvents: (NSMutableArray *) theEvents;

@@ -91,12 +91,12 @@
 //=========================================================== 
 //  keyboardIndex 
 //=========================================================== 
-- (unsigned) keyboardIndex
+- (NSUInteger) keyboardIndex
 {
     return mKeyboardIndex;
 }
 
-- (void) setKeyboardIndex: (unsigned) theKeyboardIndex
+- (void) setKeyboardIndex: (NSUInteger) theKeyboardIndex
 {
     if (mCurrentKeyboard != nil)
     {

@@ -64,12 +64,12 @@
 //=========================================================== 
 //  joystickIndex 
 //=========================================================== 
-- (unsigned) joystickIndex
+- (NSUInteger) joystickIndex
 {
     return mJoystickIndex;
 }
 
-- (void) setJoystickIndex: (unsigned) theJoystickIndex
+- (void) setJoystickIndex: (NSUInteger) theJoystickIndex
 {
     if (mCurrentJoystick != nil)
     {

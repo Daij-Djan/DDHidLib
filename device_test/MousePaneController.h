@@ -33,7 +33,7 @@
     NSArray * mMice;
     DDHidMouse * mCurrentMouse;
     
-    unsigned mMouseIndex;
+    NSUInteger mMouseIndex;
     int mMouseX;
     int mMouseY;
     int mMouseWheel;
@@ -47,8 +47,8 @@
 
 - (NSArray *) mouseButtons;
 
-- (unsigned) mouseIndex;
-- (void) setMouseIndex: (unsigned) theMouseIndex;
+- (NSUInteger) mouseIndex;
+- (void) setMouseIndex: (NSUInteger) theMouseIndex;
 
 - (int) maxValue;
 

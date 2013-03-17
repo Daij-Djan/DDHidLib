@@ -98,7 +98,7 @@
     return mKeyElements;
 }
 
-- (unsigned) numberOfKeys;
+- (NSUInteger) numberOfKeys;
 {
     return [mKeyElements count];
 }
