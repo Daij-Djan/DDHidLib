@@ -199,7 +199,7 @@
 	SInt32 sumOfValues = 0;
 
     DDHidEvent * event;
-    while (event = [hidQueue nextEvent])
+    while ((event = [hidQueue nextEvent]))
     {
         if ([event elementCookie] == [mIdElement cookie])
         {

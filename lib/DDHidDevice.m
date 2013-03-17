@@ -115,9 +115,14 @@
 	// name for all HID class devices
 	CFMutableDictionaryRef hidMatchDictionary =
         IOServiceMatching(kIOHIDDeviceKey);
-    return [self allDevicesMatchingCFDictionary: hidMatchDictionary
+    id retVal = nil;
+    if(hidMatchDictionary) {
+        retVal = [self allDevicesMatchingCFDictionary: hidMatchDictionary
                                       withClass: [DDHidDevice class]
                               skipZeroLocations: NO];
+        //CFRelease(hidMatchDictionary);//dont free, it is freed by IOServiceGetMatchingServices
+    }
+    return retVal;
 }
 
 + (NSArray *) allDevicesMatchingUsagePage: (unsigned) usagePage
@@ -129,15 +134,20 @@
 	// name for all HID class devices
 	CFMutableDictionaryRef hidMatchDictionary =
         IOServiceMatching(kIOHIDDeviceKey);
-    NSMutableDictionary * objcMatchDictionary =
-        (NSMutableDictionary *) hidMatchDictionary;
-    [objcMatchDictionary ddhid_setObject: [NSNumber numberWithUnsignedInt: usagePage]
-                               forString: kIOHIDDeviceUsagePageKey];
-    [objcMatchDictionary ddhid_setObject: [NSNumber numberWithUnsignedInt: usageId]
-                               forString: kIOHIDDeviceUsageKey];
-    return [self allDevicesMatchingCFDictionary: hidMatchDictionary
-                                      withClass: hidClass
-                              skipZeroLocations: skipZeroLocations];
+    id retVal = nil;
+    if(hidMatchDictionary) {
+        NSMutableDictionary * objcMatchDictionary =
+            (NSMutableDictionary *) hidMatchDictionary;
+        [objcMatchDictionary ddhid_setObject: [NSNumber numberWithUnsignedInt: usagePage]
+                                   forString: kIOHIDDeviceUsagePageKey];
+        [objcMatchDictionary ddhid_setObject: [NSNumber numberWithUnsignedInt: usageId]
+                                   forString: kIOHIDDeviceUsageKey];
+        retVal = [self allDevicesMatchingCFDictionary: hidMatchDictionary
+                                          withClass: hidClass
+                                  skipZeroLocations: skipZeroLocations];
+        //CFRelease(hidMatchDictionary);//dont free, it is freed by IOServiceGetMatchingServices
+    }
+return retVal;
 }
 
 + (NSArray *) allDevicesMatchingCFDictionary: (CFDictionaryRef) matchDictionary
@@ -157,7 +167,7 @@
             return [NSArray array];
         
         io_object_t hidDevice;
-        while (hidDevice = IOIteratorNext(hidObjectIterator))
+        while ((hidDevice = IOIteratorNext(hidObjectIterator)))
         {
             [self addDevice: hidDevice
                   withClass: hidClass

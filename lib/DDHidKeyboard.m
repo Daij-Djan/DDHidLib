@@ -143,8 +143,8 @@
         unsigned usageId = [[element usage] usageId];
         if (usagePage == kHIDPage_KeyboardOrKeypad)
         {
-            if ((usageId >= 0x04) && (usageId <= 0xA4) ||
-                (usageId >= 0xE0) && (usageId <= 0xE7))
+            if (((usageId >= 0x04) && (usageId <= 0xA4)) ||
+                ((usageId >= 0xE0) && (usageId <= 0xE7)))
             {
                 [mKeyElements addObject: element];
             }
@@ -158,7 +158,7 @@
 - (void) ddhidQueueHasEvents: (DDHidQueue *) hidQueue;
 {
     DDHidEvent * event;
-    while (event = [hidQueue nextEvent])
+    while ((event = [hidQueue nextEvent]))
     {
         DDHidElement * element = [self elementForCookie: [event elementCookie]];
         unsigned usageId = [[element usage] usageId];

@@ -93,7 +93,7 @@ void NSXMakeErrorImp(const char *objCType_, intptr_t result_, const char *file_,
 			break;
 	}
 
-	if (errorDomain) {
+	if (errorDomain && error_) {
 		*error_ = [NSError errorWithDomain:errorDomain
 									  code:errorCode
 								  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:

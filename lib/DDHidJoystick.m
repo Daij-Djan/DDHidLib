@@ -294,7 +294,7 @@
 - (void) ddhidQueueHasEvents: (DDHidQueue *) hidQueue;
 {
     DDHidEvent * event;
-    while (event = [hidQueue nextEvent])
+    while ((event = [hidQueue nextEvent]))
     {
         IOHIDElementCookie cookie = [event elementCookie];
         SInt32 value = [event value];
@@ -346,7 +346,7 @@
             else
             {
                 DDHidElement * element = [self elementForCookie: [event elementCookie]];
-                NSLog(@"Element: %@, value: %d", [[element usage] usageName], [event value]);
+                NSLog(@"Element: %@, value: %d", [[element usage] usageName], (int)[event value]);
             }
         }
     }

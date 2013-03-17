@@ -97,7 +97,7 @@
 	
 	DDHidAppleRemoteEventIdentifier buttonToSelect = lastButtonIdentifier;
 	
-	NSPoint buttonPos;
+	NSPoint buttonPos = NSZeroPoint;
 	float opacity = 0.5;
 	
 	switch(buttonToSelect) {

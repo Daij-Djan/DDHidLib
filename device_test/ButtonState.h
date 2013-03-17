@@ -30,6 +30,7 @@
     BOOL mPressed;
 }
 
+- (id) initWithName: (NSString *) name;
 - (NSString *) name;
 
 - (BOOL) pressed;

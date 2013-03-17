@@ -152,7 +152,7 @@
 - (void) ddhidQueueHasEvents: (DDHidQueue *) hidQueue;
 {
     DDHidEvent * event;
-    while (event = [hidQueue nextEvent])
+    while ((event = [hidQueue nextEvent]))
     {
         DDHidElement * element = [self elementForCookie: [event elementCookie]];
         unsigned usageId = [[element usage] usageId];

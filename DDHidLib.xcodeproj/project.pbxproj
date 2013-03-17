@@ -55,7 +55,6 @@
 		556E1E690B5359F9002F709C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E1E680B5359F9002F709C /* IOKit.framework */; };
 		55917B640B53408C005308AC /* HidBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55917B630B53408C005308AC /* HidBrowserController.m */; };
 		55917E1C0B53E454005308AC /* HexFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55917E1B0B53E454005308AC /* HexFormatter.m */; };
-		559CBAEB0B5B31AB00C8FD74 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 559CBAE90B5B31AB00C8FD74 /* Info.plist */; };
 		559CBAEC0B5B31AB00C8FD74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 559CBAEA0B5B31AB00C8FD74 /* main.m */; };
 		559CBB930B5B31E300C8FD74 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		559CBB940B5B31EA00C8FD74 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E1E680B5359F9002F709C /* IOKit.framework */; };
@@ -650,7 +649,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559CBAEB0B5B31AB00C8FD74 /* Info.plist in Resources */,
 				55170E670B8ECF0000C82155 /* AppleRemote.tiff in Resources */,
 				55D5927D0BAE306E00364849 /* InfoPlist.strings in Resources */,
 				55D592940BAE30B600364849 /* MainMenu.nib in Resources */,

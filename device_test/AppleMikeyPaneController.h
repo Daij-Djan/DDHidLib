@@ -40,7 +40,7 @@
     DDHidAppleMikey * mCurrentMikey;
 }
 
-- (NSArray *) mMikeys;
+- (NSArray *) mikeys;
 - (void) setMikeys: (NSArray *) theMikeys;
 
 - (unsigned) mikeyIndex;
