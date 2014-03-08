@@ -23,6 +23,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		30B1E6A918CBA620004E111E /* DDHidAppleMikey.h in Headers */ = {isa = PBXBuildFile; fileRef = B366F1AE16F5DE9800C0BA49 /* DDHidAppleMikey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55170D360B8EC2CE00C82155 /* DDHidAppleRemote.h in Headers */ = {isa = PBXBuildFile; fileRef = 55170D340B8EC2CE00C82155 /* DDHidAppleRemote.h */; };
 		55170D370B8EC2CE00C82155 /* DDHidAppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 55170D350B8EC2CE00C82155 /* DDHidAppleRemote.m */; };
 		55170E0D0B8ECCAC00C82155 /* AppleRemotePaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55170E0C0B8ECCAC00C82155 /* AppleRemotePaneController.m */; };
@@ -495,6 +496,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B1E6A918CBA620004E111E /* DDHidAppleMikey.h in Headers */,
 				55193E580B93F31D004C0C98 /* DDHidDevice.h in Headers */,
 				55193E5A0B93F31D004C0C98 /* DDHidElement.h in Headers */,
 				55193E5C0B93F31D004C0C98 /* DDHidUsage.h in Headers */,
@@ -503,12 +505,12 @@
 				55193E620B93F31D004C0C98 /* DDHidUsageTables.h in Headers */,
 				55193E640B93F31D004C0C98 /* NSDictionary+DDHidExtras.h in Headers */,
 				55193E660B93F31D004C0C98 /* DDHidMouse.h in Headers */,
+				55D5937B0BAE3B8800364849 /* DDHidKeyboard.h in Headers */,
 				55193E680B93F31D004C0C98 /* DDHidJoystick.h in Headers */,
 				55193E6A0B93F31D004C0C98 /* DDHidAppleRemote.h in Headers */,
+				55FC9FDD0BB76D8D0095FC7B /* DDHidKeyboardBarcodeScanner.h in Headers */,
 				55193E6C0B93F31D004C0C98 /* DDHidLib.h in Headers */,
 				55193F110B93F36F004C0C98 /* NSXReturnThrowError.h in Headers */,
-				55D5937B0BAE3B8800364849 /* DDHidKeyboard.h in Headers */,
-				55FC9FDD0BB76D8D0095FC7B /* DDHidKeyboardBarcodeScanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
