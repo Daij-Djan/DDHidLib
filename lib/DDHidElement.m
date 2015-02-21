@@ -31,6 +31,9 @@
 
 + (NSArray *) elementsWithPropertiesArray: (NSArray *) propertiesArray;
 {
+    if(!propertiesArray) return nil;
+    if(![propertiesArray isKindOfClass:[NSArray class]]) propertiesArray = @[propertiesArray];
+
     NSMutableArray * elements = [NSMutableArray array];
     
     NSDictionary * properties;
