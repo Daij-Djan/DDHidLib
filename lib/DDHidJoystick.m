@@ -125,7 +125,6 @@
     int logicalDeviceCount = [mLogicalDeviceElements count];
     if (logicalDeviceCount ==  0)
     {
-        [self release];
         return nil;
     }
 
@@ -146,14 +145,9 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mLogicalDeviceElements release];
-    [mSticks release];
-    [mButtonElements release];
-    
     mLogicalDeviceElements = nil;
     mSticks = nil;
     mButtonElements = nil;
-    [super dealloc];
 }
 
 - (int) logicalDeviceCount;
@@ -247,7 +241,7 @@
 {
     NSEnumerator * e = [elements objectEnumerator];
     DDHidElement * element;
-    DDHidJoystickStick * currentStick = [[[DDHidJoystickStick alloc] init] autorelease];
+    DDHidJoystickStick * currentStick = [[DDHidJoystickStick alloc] init];
     BOOL stickHasElements = NO;
 
     while (element = [e nextObject])
@@ -544,16 +538,10 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mXAxisElement release];
-    [mYAxisElement release];
-    [mStickElements release];
-    [mPovElements release];
-    
     mXAxisElement = nil;
     mYAxisElement = nil;
     mStickElements = nil;
     mPovElements = nil;
-    [super dealloc];
 }
 
 -  (BOOL) addElement: (DDHidElement *) element;
@@ -567,14 +555,14 @@
     {
         case kHIDUsage_GD_X:
             if (mXAxisElement == nil)
-                mXAxisElement = [element retain];
+                mXAxisElement = element;
             else
                 [mStickElements addObject: element];
             break;
             
         case kHIDUsage_GD_Y:
             if (mYAxisElement == nil)
-                mYAxisElement = [element retain];
+                mYAxisElement = element;
             else
                 [mStickElements addObject: element];
             break;

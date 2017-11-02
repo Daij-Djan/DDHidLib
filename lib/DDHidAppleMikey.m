@@ -76,10 +76,7 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mPressElements release];
-    
     mPressElements = nil;
-    [super dealloc];
 }
 
 #pragma mark -
