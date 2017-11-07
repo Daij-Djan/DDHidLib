@@ -87,7 +87,7 @@
     return mPressElements;
 }
 
-- (unsigned) numberOfKeys;
+- (unsigned long) numberOfKeys;
 {
     return [mPressElements count];
 }

@@ -116,7 +116,7 @@
     return mButtonElements; 
 }
 
-- (unsigned) numberOfButtons;
+- (unsigned long) numberOfButtons;
 {
     return [mButtonElements count];
 }

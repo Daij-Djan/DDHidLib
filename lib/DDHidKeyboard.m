@@ -85,7 +85,7 @@
     return mKeyElements;
 }
 
-- (unsigned) numberOfKeys;
+- (unsigned long) numberOfKeys;
 {
     return [mKeyElements count];
 }
