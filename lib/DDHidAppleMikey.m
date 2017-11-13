@@ -76,10 +76,7 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mPressElements release];
-    
     mPressElements = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -90,7 +87,7 @@
     return mPressElements;
 }
 
-- (unsigned) numberOfKeys;
+- (unsigned long) numberOfKeys;
 {
     return [mPressElements count];
 }

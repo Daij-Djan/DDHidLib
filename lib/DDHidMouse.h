@@ -53,7 +53,7 @@
 
 - (NSArray *) buttonElements;
 
-- (unsigned) numberOfButtons;
+- (unsigned long) numberOfButtons;
 
 - (void) addElementsToQueue: (DDHidQueue *) queue;
 
