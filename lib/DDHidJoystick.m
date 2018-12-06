@@ -122,16 +122,17 @@
     mLogicalDeviceElements = [[NSMutableArray alloc] init];
 
     [self initLogicalDeviceElements];
-    int logicalDeviceCount = [mLogicalDeviceElements count];
+    long logicalDeviceCount = [mLogicalDeviceElements count];
     if (logicalDeviceCount ==  0)
     {
-        [self release];
         return nil;
     }
 
     mLogicalDeviceNumber = logicalDeviceNumber;
     if (mLogicalDeviceNumber >= logicalDeviceCount)
+    {
         mLogicalDeviceNumber = logicalDeviceCount - 1;
+    }
     
     [self initJoystickElements:
         [mLogicalDeviceElements objectAtIndex: mLogicalDeviceNumber]];
@@ -146,17 +147,12 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mLogicalDeviceElements release];
-    [mSticks release];
-    [mButtonElements release];
-    
     mLogicalDeviceElements = nil;
     mSticks = nil;
     mButtonElements = nil;
-    [super dealloc];
 }
 
-- (int) logicalDeviceCount;
+- (unsigned long) logicalDeviceCount;
 {
     return [mLogicalDeviceElements count];
 }
@@ -172,7 +168,7 @@
     return mButtonElements; 
 }
 
-- (unsigned) numberOfButtons;
+- (unsigned long) numberOfButtons;
 {
     return [mButtonElements count];
 }
@@ -180,7 +176,7 @@
 #pragma mark -
 #pragma mark Sticks - indexed accessors
 
-- (unsigned int) countOfSticks 
+- (unsigned long) countOfSticks
 {
     return [mSticks count];
 }
@@ -247,7 +243,7 @@
 {
     NSEnumerator * e = [elements objectEnumerator];
     DDHidElement * element;
-    DDHidJoystickStick * currentStick = [[[DDHidJoystickStick alloc] init] autorelease];
+    DDHidJoystickStick * currentStick = [[DDHidJoystickStick alloc] init];
     BOOL stickHasElements = NO;
 
     while (element = [e nextObject])
@@ -356,11 +352,11 @@
             forElement: (DDHidElement *) element;
 {
     int normalizedUnits = DDHID_JOYSTICK_VALUE_MAX - DDHID_JOYSTICK_VALUE_MIN;
-    int elementUnits = [element maxValue] - [element minValue];
+    long elementUnits = [element maxValue] - [element minValue];
     
-    int normalizedValue = (((int64_t)(value - [element minValue]) * normalizedUnits) /
+    long normalizedValue = (((int64_t)(value - [element minValue]) * normalizedUnits) /
                            elementUnits) + DDHID_JOYSTICK_VALUE_MIN;
-    return normalizedValue;
+    return (int)normalizedValue;
 }
 
 - (int) povValue: (int) value
@@ -378,7 +374,9 @@
     
     // Do like DirectInput and express the hatswitch value in hundredths of a
 	// degree, clockwise from north.
-	return 36000 / (max - min + 1) * (value - min);
+	long ret = 36000 / (max - min + 1) * (value - min);
+    
+    return (int)ret;
 }
 
 - (BOOL) findStick: (unsigned *) stick
@@ -544,16 +542,10 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mXAxisElement release];
-    [mYAxisElement release];
-    [mStickElements release];
-    [mPovElements release];
-    
     mXAxisElement = nil;
     mYAxisElement = nil;
     mStickElements = nil;
     mPovElements = nil;
-    [super dealloc];
 }
 
 -  (BOOL) addElement: (DDHidElement *) element;
@@ -567,14 +559,14 @@
     {
         case kHIDUsage_GD_X:
             if (mXAxisElement == nil)
-                mXAxisElement = [element retain];
+                mXAxisElement = element;
             else
                 [mStickElements addObject: element];
             break;
             
         case kHIDUsage_GD_Y:
             if (mYAxisElement == nil)
-                mYAxisElement = [element retain];
+                mYAxisElement = element;
             else
                 [mStickElements addObject: element];
             break;
@@ -623,7 +615,7 @@
 #pragma mark -
 #pragma mark mStickElements - indexed accessors
 
-- (unsigned int) countOfStickElements 
+- (unsigned long) countOfStickElements
 {
     return [mStickElements count];
 }
@@ -636,7 +628,7 @@
 #pragma mark -
 #pragma mark PovElements - indexed accessors
 
-- (unsigned int) countOfPovElements;
+- (unsigned long) countOfPovElements;
 {
     return [mPovElements count];
 }

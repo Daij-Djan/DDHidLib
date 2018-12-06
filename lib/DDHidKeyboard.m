@@ -74,10 +74,7 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mKeyElements release];
-    
     mKeyElements = nil;
-    [super dealloc];
 }
 
 #pragma mark -
@@ -88,7 +85,7 @@
     return mKeyElements;
 }
 
-- (unsigned) numberOfKeys;
+- (unsigned long) numberOfKeys;
 {
     return [mKeyElements count];
 }

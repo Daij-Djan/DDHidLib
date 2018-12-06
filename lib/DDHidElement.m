@@ -50,7 +50,7 @@
 + (DDHidElement *) elementWithProperties: (NSDictionary *) properties;
 {
     DDHidElement * element = [[DDHidElement alloc] initWithProperties: properties];
-    return [element autorelease];
+    return element;
 }
 
 - (id) initWithProperties: (NSDictionary *) properties;
@@ -59,7 +59,7 @@
     if (self == nil)
         return nil;
     
-    mProperties = [properties retain];
+    mProperties = properties;
     unsigned usagePage = [mProperties ddhid_unsignedIntForString: kIOHIDElementUsagePageKey];
     unsigned usageId = [mProperties ddhid_unsignedIntForString: kIOHIDElementUsageKey];
     mUsage = [[DDHidUsage alloc] initWithUsagePage: usagePage
@@ -67,8 +67,7 @@
     
     NSArray * elementsProperties =
         [mProperties ddhid_objectForString: kIOHIDElementKey];
-    mElements = [[DDHidElement elementsWithPropertiesArray: elementsProperties]
-        retain];
+    mElements = [DDHidElement elementsWithPropertiesArray: elementsProperties];
 
     return self;
 }
@@ -78,14 +77,9 @@
 //=========================================================== 
 - (void) dealloc
 {
-    [mProperties release];
-    [mUsage release];
-    [mElements release];
-    
     mProperties = nil;
     mUsage = nil;
     mElements = nil;
-    [super dealloc];
 }
 
 - (NSDictionary *) properties;
